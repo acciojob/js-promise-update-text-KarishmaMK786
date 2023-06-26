@@ -1,12 +1,18 @@
-//your JS code here. If required.
-function generatePromise() {
-	return new Promise((resolve, reject) => {
-		setTimeout(() => {
-			resolve("Hello, World!")
-		} ,1000)
-	}
+function updateTextWithPromise() {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve('Hello, world!');
+    }, 1000);
+  });
 }
-generatePromise().then((data) => {
-const element = document.getElementById("output");
-element.innerText = data;
-})
+
+// Function to update the HTML element
+function updateElementText() {
+  const element = document.getElementById('output');
+  updateTextWithPromise().then((text) => {
+    element.textContent = text;
+  });
+}
+
+// Call the function to update the element text
+updateElementText();
